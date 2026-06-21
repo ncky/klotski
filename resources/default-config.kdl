@@ -1,0 +1,78 @@
+# Klotski default config. This file is loaded before user config.
+
+default-column-width-proportion = 0.5
+gaps = 2
+padding = 0
+
+keyboard-scroll-fraction = 0.5
+scroll-wheel-sensitivity = 3.0
+gesture-scroll-sensitivity = 4.0
+gesture-scroll-inverted = true
+scroll-settle-delay = 0.08
+horizontal-view-animation-speed = 18.0
+
+center-focused-column = never
+always-center-single-column = false
+focus-follows-mouse = true
+mod-key = alt
+
+window-rule {
+    match subrole="AXDialog"
+    open-floating true
+}
+
+window-rule {
+    match subrole="AXSystemDialog"
+    open-floating true
+}
+
+window-rule {
+    match subrole="AXFloatingWindow"
+    open-floating true
+}
+
+window-rule {
+    match subrole="AXUnknown"
+    open-floating true
+}
+
+window-rule {
+    match app-id="com.apple.systempreferences"
+    open-floating true
+}
+
+window-rule {
+    match app-name="System Settings"
+    open-floating true
+}
+
+window-rule {
+    match app-id="com.apple.TextInputUI.xpc.CursorUIViewService"
+    ignore true
+}
+
+window-rule {
+    match app-name="CursorUIViewService"
+    ignore true
+}
+
+binds {
+    Mod+Left  { scroll-left; }
+    Mod+Right { scroll-right; }
+
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Right { move-column-right; }
+
+    Mod+F repeat=false { maximize-column; }
+    Mod+W repeat=false { toggle-window-floating; }
+    Mod+BracketLeft  { set-column-width "-10%"; }
+    Mod+BracketRight { set-column-width "+10%"; }
+
+    Mod+MouseLeft  { start-interactive-move; }
+    Mod+MouseRight { start-interactive-resize; }
+
+    Mod+WheelScrollUp    { scroll-left; }
+    Mod+WheelScrollDown  { scroll-right; }
+    Mod+WheelScrollLeft  { scroll-left; }
+    Mod+WheelScrollRight { scroll-right; }
+}

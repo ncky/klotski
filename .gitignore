@@ -1,0 +1,6 @@
+bin/
+build/
+vendor/
+*.dSYM/
+*.o
+.DS_Store
